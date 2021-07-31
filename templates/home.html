@@ -1,0 +1,24 @@
+{% extends 'layouts.html' %}
+
+{% block title %}home{% endblock %}
+{% block content %}
+{% load static %}
+<div class="container">
+    <div class="row">
+        {% for blog in blogs %}
+        <div class="col-lg-4 mb-4 mt-5">
+        <div class="card shadow" style="width: 18rem;">
+            <img src="{{MEDIA_URL}}{{blog.image.url}}" height="180px" width="80px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{blog.title|truncatewords:5}}</h5>
+                <p class="card-text"></p>{{blog.content|striptags|truncatewords:28}}</p>
+                <a href="{% url 'blog_detail' blog.slug %}" class="btn btn-danger">View More</a>
+            </div>
+            <div class="form-text text-end">{{blog.upload_at}}</div>
+        </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

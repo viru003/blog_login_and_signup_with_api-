@@ -1,0 +1,29 @@
+{% extends 'layouts.html' %}
+{% block title %}add block{% endblock %}
+
+{% block content %}
+<div class="container">
+    <a type="button" href="{% url 'see_blog' %}" class="btn btn-warning mt-5"><h5>see your blog</h5></a>
+    <form method="post" class="mt-5 mb-5 pb-5" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-12">
+                <label for="title">Enter blog title</label>
+                <input type="text" id="title" class="form-control" placeholder="enter title" name="title">
+
+            </div>
+            <div class="col-md-12">
+                {{form.media}}
+                {{form.as_p}}
+            </div>
+            <div class="col-md-12">
+                <input type="file" name="image" id="image" class="form-control"><br>
+                </div>
+                <div>
+                <button class="btn btn-outline-success" type="submit">create blog</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'layouts.html' %}
+{% block title %}view block{% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="container mt-4">
+        <div class="card-title">
+            <h5 class="card-title text-center">{{blog_obj.title|safe}}</h5>
+            <p class="text-center">{{blog_obj.upload_at}}</p>
+        </div>
+        <div class="row">
+            <div class="col-xl-10 mx-auto text-center">
+                <img class="shadow" src="{{MEDIA_URL}}{{blog_obj.image.url}}" height="400px" width="700px" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-10 mx-auto">
+                <div class="text-content text-center">
+                    {{blog_obj.content|safe}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'layouts.html' %}
+{% block title %}login{% endblock %}
+{% block head %}
+<script type="text/javascript">
+            function doit_onkeypress(event){
+                if (event.keyCode == 13 || event.which == 13){
+                    login();
+                }
+            }
+</script>
+{% endblock %}
+{% block content %}
+{% load static %}
+{% csrf_token %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 shadow mt-5 mb-5 p-4">
+            <h3>Login</h3>
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" class="form-control" id="username" aria-describedby="emailHelp" onkeypress="javascript:doit_onkeypress(event);">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" onkeypress="javascript:doit_onkeypress(event);">
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" onclick="login()"  class="btn btn-primary">Submit</button>
+
+        </div>
+        <div class="col-lg-6 mt-5 mb-5 p-4">
+            <img src="{% static 'images/login.jpg' %}" class="img-fluid img-responsive shadow" alt="">
+            <script>
+              $("#myText").keypress(function(event) {
+                if (event.which == 13) {
+                login();
+                alert("You pressed enter");
+     }
+});
+            </script>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
