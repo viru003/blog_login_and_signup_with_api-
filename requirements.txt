@@ -5,5 +5,5 @@ django-froala-editor
 django-login-required
 django-user-sessions
 django-force-logout
-mysql-python
 mysqlclient
+mysql-python
