@@ -1,0 +1,7 @@
+django
+pillow
+djangorestframework
+django-froala-editor
+django-login-required
+django-user-sessions
+django-force-logout
