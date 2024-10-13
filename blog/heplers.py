@@ -1,9 +1,9 @@
 from django.utils.text import slugify
 import string
-import random
+import secrets
 
 def generate_random_string(N):
-    res=''.join(random.choices(string.ascii_uppercase+string.digits, k=N))
+    res=''.join(secrets.SystemRandom().choices(string.ascii_uppercase+string.digits, k=N))
     return res
 
 def generate_slug(text):
